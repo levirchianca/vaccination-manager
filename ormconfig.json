@@ -1,0 +1,15 @@
+{
+  "type": "sqlite",
+  "database": "db.sqlite3",
+  "logging": false,
+  "entities": [
+     "./src/models/*.ts"
+  ],
+  "migrations": [
+     "./src/DAO/migrations/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "./src/DAO/migrations",
+    "entitiesDir": "./src/models"
+  }
+}
