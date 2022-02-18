@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Gerenciador de Vacinação</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row mt-4 mb-2">
+      {% if update %}
+        <h1>Atualizar Paciente</h1>
+      {% else %}
+        <h1>Novo Paciente</h1>
+      {% endif %}
+    </div>
+    <div class="row">
+      <div class="card">
+        <div class="card-body">
+          <form method="POST" action="">
+            <div class="row">
+              <div class="mb-3 col-md-6">
+                <label for="Input_nome" class="form-label">Nome</label>
+                <input required type="text" class="form-control" id="Input_nome" name="nome" 
+                  {% if paciente %}
+                    value="{{paciente.nome}}"
+                  {% endif %}
+                >
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="Input_sobrenome" class="form-label">Sobrenome</label>
+                <input required type="text" class="form-control" id="Input_sobrenome" name="sobrenome"
+                  {% if paciente %}
+                    value="{{paciente.sobrenome}}"
+                  {% endif %}
+                >
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="Input_cpf" class="form-label">CPF</label>
+              <input required type="text" class="form-control" id="Input_cpf" name="cpf"
+              {% if paciente %}
+                value="{{paciente.cpf}}"
+              {% endif %}
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="Input_rg" class="form-label">RG</label>
+              <input required type="text" class="form-control" id="Input_rg" name="rg"
+              {% if paciente %}
+                value="{{paciente.rg}}"
+              {% endif %}
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="Input_email" class="form-label">Email</label>
+              <input required type="email" class="form-control" id="Input_email" name="email"
+              {% if paciente %}
+                value="{{paciente.email}}"
+              {% endif %}
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="Input_telefone" class="form-label">Telefone</label>
+              <input required type="tel" class="form-control" id="Input_telefone" name="telefone"
+              {% if paciente %}
+                value="{{paciente.telefone}}"
+              {% endif %}
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="select_endereco_id" class="form-label">Endereço</label>
+              <select required class="form-select" id="select_endereco_id" name="endereco_id">
+                <option value="" disabled selected>Selecione um endereço</option>
+                {% for endereco in enderecos %}
+                  <option value="{{ endereco.id }}">
+                    {{ endereco.rua }} - {{ endereco.cidade }} - {{ endereco.estado }}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  {% if update %}
+  <script>
+    document.getElementById('select_endereco_id').value = {{ paciente.endereco.id }};
+  </script>
+  {% endif %}
+</body>
+</html>

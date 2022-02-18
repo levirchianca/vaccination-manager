@@ -1,7 +1,7 @@
 import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import Endereco from "./Endereco";
 
-Entity('patients')
+@Entity('patients')
 class Paciente {
   @PrimaryGeneratedColumn('increment')
   id: number;

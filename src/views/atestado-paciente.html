@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Gerenciador de Vacinação</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row mt-4 mb-2">
+      <h3>Seu atestado de vacinação</h1>
+    </div>
+    <div class="row">
+      <div class="card">
+        <div class="card-body">
+          <form method="POST" action="">
+            <div class="row">
+              <div class="mb-3 col-md-6">
+                <label for="Input_nome" class="form-label">Nome</label>
+                <input required type="text" class="form-control" id="Input_nome" name="nome" 
+                   value="{{vacinacao.paciente.nome}}"
+                >
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="Input_sobrenome" class="form-label">Sobrenome</label>
+                <input required type="text" class="form-control" id="Input_sobrenome" name="sobrenome"
+                   value="{{vacinacao.paciente.sobrenome}}"
+                >
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="Input_cpf" class="form-label">CPF</label>
+              <input required type="text" class="form-control" id="Input_cpf" name="cpf"
+               value="{{vacinacao.paciente.cpf}}"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="Input_rg" class="form-label">RG</label>
+              <input required type="text" class="form-control" id="Input_rg" name="rg"
+               value="{{vacinacao.paciente.rg}}"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="Input_email" class="form-label">Email</label>
+              <input required type="email" class="form-control" id="Input_email" name="email"
+               value="{{vacinacao.paciente.email}}"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="Input_telefone" class="form-label">Telefone</label>
+              <input required type="tel" class="form-control" id="Input_telefone" name="telefone"
+               value="{{vacinacao.paciente.telefone}}"
+              >
+            </div>
+            
+            <div class="mb-3">
+              <label for="Input_telefone" class="form-label">Endereco</label>
+              <input required type="tel" class="form-control" id="Input_telefone" name="telefone"
+               value="{{ paciente.endereco.rua }} - {{ paciente.endereco.cidade }} - {{ paciente.endereco.estado }}"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="Input_telefone" class="form-label">Data de vacinação</label>
+              <input required type="tel" class="form-control" id="Input_telefone" name="telefone"
+               value="{{ vacinacao.data_aplicacao }}"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="Input_telefone" class="form-label">Lote da vacina</label>
+              <input required type="tel" class="form-control" id="Input_telefone" name="telefone"
+               value="{{ vacinacao.vacina.lote }}"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="Input_telefone" class="form-label">Descrição da Vacina</label>
+              <input required type="tel" class="form-control" id="Input_telefone" name="telefone"
+               value="{{ vacinacao.vacina.descricao }}"
+              >
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   <script>
+  </script>
+</body>
+</html>

@@ -13,8 +13,7 @@ class Vacinacao {
   vacina: FabricanteVacina;
 
   @OneToOne(() => Paciente)
-  // @JoinColumn({ name: 'paciente_id' })
-  @JoinColumn()
+  @JoinColumn({ name: 'paciente_id' })
   paciente: Paciente;
 
   @OneToOne(() => ProfissionalDeSaude)
